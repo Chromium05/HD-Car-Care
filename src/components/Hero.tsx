@@ -35,7 +35,7 @@ export const Hero = () => {
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Perawatan Mobil
-            <span className="text-blue-400 block">Premium</span>
+            <span className="text-green-400 block">Premium</span>
           </h1>
           
           <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
@@ -46,7 +46,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button 
               onClick={scrollToServices}
-              className="bg-blue-600 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-blue-700 transition-colors rounded-lg"
+              className="bg-green-600 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-green-700 transition-colors rounded-lg"
             >
               Lihat Layanan Kami
             </button>

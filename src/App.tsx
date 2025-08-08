@@ -11,7 +11,7 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 
 export function App() {
   return (
-    <div className="bg-white text-gray-900 min-h-screen">
+    <div className="bg-black text-white min-h-screen">
       <Header />
       <main>
         <Hero />

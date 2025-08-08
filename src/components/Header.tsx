@@ -43,7 +43,7 @@ export const Header = () => {
           <h1 className={`text-2xl font-bold tracking-wide ${
             isScrolled ? 'text-green-400' : 'text-white'
           }`}>
-            HD<span className="text-gray-500">Car Care</span>
+            HD <span className="text-gray-300">Car Care</span>
           </h1>
         </div>
 

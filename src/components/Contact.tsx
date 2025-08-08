@@ -147,7 +147,7 @@ export const Contact = () => {
             {/* Google Maps */}
             <div className="bg-neutral-800 rounded-xl shadow-lg overflow-hidden border border-neutral-700">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.746890240086!2d106.81634931476894!3d-6.295068995438098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b0b3%3A0x39a0d0fe47404d02!2sKemang%2C%20Mampang%20Prapatan%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1635123456789!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.7644271138192!2d112.71444627371689!3d-7.280088871542487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb6beb3f3687%3A0xe2abeaeb82d35f2d!2sHD%20Car%20Care%20Surabaya%20Barat!5e1!3m2!1sid!2sid!4v1754632946000!5m2!1sid!2sid"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

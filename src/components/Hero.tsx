@@ -19,18 +19,11 @@ export const Hero = () => {
           muted
           playsInline
           className="w-full h-full object-cover object-center"
-          poster="https://images.unsplash.com/photo-1619252584172-a83a949b6efd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          poster="/images/hero-poster.jpg"
         >
-          {/* Primary video source - you can replace this URL with your actual video */}
-          <source 
-            src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=164&oauth2_token_id=57447761" 
-            type="video/mp4" 
-          />
-          {/* Fallback video source */}
-          <source 
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
-            type="video/mp4" 
-          />
+          {/* Your custom video from public/videos/ folder */}
+          <source src="/videos/15.0-35.0.mp4" type="video/mp4" />
+          
           {/* Fallback image if video fails to load */}
           <img 
             src="https://images.unsplash.com/photo-1619252584172-a83a949b6efd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
@@ -42,7 +35,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-black/60"></div>
       </div>
 
-      {/* Content - Exactly the same as before */}
+      {/* Content - Same as before */}
       <div className="relative z-10 h-full flex flex-col justify-center items-start container mx-auto px-6 md:px-12">
         <div className="max-w-3xl">
           <div className="flex items-center mb-4">
@@ -71,11 +64,19 @@ export const Hero = () => {
             >
               Lihat Layanan Kami
             </button>
+            <a 
+              href="https://wa.me/6281234567890" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-gray-900 transition-colors rounded-lg text-center"
+            >
+              Konsultasi Gratis
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator - Same as before */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-0 right-0 flex justify-center z-10 animate-bounce">
         <ChevronDownIcon size={32} className="text-white" />
       </div>

@@ -3,3 +3,37 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 /* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
+
+/* Custom scrolling animation for testimonials */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Default (mobile) speed */
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+  will-change: transform;
+}
+
+/* Desktop speed override */
+@media (min-width: 768px) {
+  .animate-scroll-left {
+    animation-duration: 20s;
+  }
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

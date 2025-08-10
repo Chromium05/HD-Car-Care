@@ -1,11 +1,47 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
 import { CheckIcon, AwardIcon, UsersIcon, ClockIcon, ShieldIcon } from "lucide-react"
 
 export const About = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const [counters, setCounters] = useState({
+    customers: 0,
+    experience: 0,
+    support: 0,
+    guarantee: 0,
+  })
+  const achievementsRef = useRef<HTMLDivElement>(null)
+
   const achievements = [
-    { icon: <UsersIcon size={24} />, number: "1000+", label: "Pelanggan Puas" },
-    { icon: <AwardIcon size={24} />, number: "5+", label: "Tahun Pengalaman" },
-    { icon: <ClockIcon size={24} />, number: "24/7", label: "Customer Support" },
-    { icon: <ShieldIcon size={24} />, number: "100%", label: "Garansi Kualitas" },
+    {
+      icon: <UsersIcon size={24} />,
+      number: "1000+",
+      label: "Pelanggan Puas",
+      key: "customers",
+      target: 1000,
+    },
+    {
+      icon: <AwardIcon size={24} />,
+      number: "5+",
+      label: "Tahun Pengalaman",
+      key: "experience",
+      target: 5,
+    },
+    {
+      icon: <ClockIcon size={24} />,
+      number: "24/7",
+      label: "Customer Support",
+      key: "support",
+      target: 24,
+    },
+    {
+      icon: <ShieldIcon size={24} />,
+      number: "100%",
+      label: "Garansi Kualitas",
+      key: "guarantee",
+      target: 100,
+    },
   ]
 
   const highlights = [
@@ -16,6 +52,84 @@ export const About = () => {
     "Spesialis kendaraan mewah dan sport",
     "Konsultasi gratis untuk semua pelanggan",
   ]
+
+  // Intersection Observer to detect when achievements section is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true)
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: "0px 0px -100px 0px", // Start animation a bit before fully visible
+      },
+    )
+
+    if (achievementsRef.current) {
+      observer.observe(achievementsRef.current)
+    }
+
+    return () => {
+      if (achievementsRef.current) {
+        observer.unobserve(achievementsRef.current)
+      }
+    }
+  }, [isVisible])
+
+  // Counter animation effect
+  useEffect(() => {
+    if (!isVisible) return
+
+    const animateCounter = (key: string, target: number, duration = 2000) => {
+      const startTime = Date.now()
+      const startValue = 0
+
+      const updateCounter = () => {
+        const currentTime = Date.now()
+        const elapsed = currentTime - startTime
+        const progress = Math.min(elapsed / duration, 1)
+
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+        const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart)
+
+        setCounters((prev) => ({
+          ...prev,
+          [key]: currentValue,
+        }))
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter)
+        }
+      }
+
+      requestAnimationFrame(updateCounter)
+    }
+
+    // Start animations with slight delays for staggered effect
+    setTimeout(() => animateCounter("customers", 1000, 2500), 100)
+    setTimeout(() => animateCounter("experience", 5, 1500), 300)
+    setTimeout(() => animateCounter("support", 24, 1800), 500)
+    setTimeout(() => animateCounter("guarantee", 100, 2200), 700)
+  }, [isVisible])
+
+  // Format counter values
+  const formatCounterValue = (key: string, value: number) => {
+    switch (key) {
+      case "customers":
+        return `${value}+`
+      case "experience":
+        return `${value}+`
+      case "support":
+        return value === 24 ? "24/7" : `${value}/7`
+      case "guarantee":
+        return `${value}%`
+      default:
+        return value.toString()
+    }
+  }
 
   return (
     <section id="about" className="py-20 px-6 md:px-12 bg-black">
@@ -82,8 +196,8 @@ export const About = () => {
           </div>
         </div>
 
-        {/* Achievements Section */}
-        <div className="bg-neutral-900 rounded-2xl p-8 md:p-12 border border-neutral-700">
+        {/* Achievements Section with Counter Animation */}
+        <div ref={achievementsRef} className="bg-neutral-900 rounded-2xl p-8 md:p-12 border border-neutral-700">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
               <span className="font-medium text-green-400">Pencapaian</span> Kami
@@ -94,10 +208,12 @@ export const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => (
               <div key={index} className="text-center">
-                <div className="bg-green-600 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-green-600 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 hover:scale-110">
                   {achievement.icon}
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-green-400 mb-2">{achievement.number}</div>
+                <div className="text-2xl md:text-3xl font-bold text-green-400 mb-2 tabular-nums">
+                  {formatCounterValue(achievement.key, counters[achievement.key as keyof typeof counters])}
+                </div>
                 <div className="text-gray-300 text-sm md:text-base">{achievement.label}</div>
               </div>
             ))}

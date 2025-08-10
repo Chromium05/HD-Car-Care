@@ -64,14 +64,6 @@ export const Hero = () => {
             >
               Lihat Layanan Kami
             </button>
-            <a 
-              href="https://wa.me/6281234567890" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-gray-900 transition-colors rounded-lg text-center"
-            >
-              Konsultasi Gratis
-            </a>
           </div>
         </div>
       </div>

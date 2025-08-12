@@ -256,8 +256,8 @@ export const Contact = () => {
                   <MapPinIcon size={24} className="mr-4 mt-1 text-green-400 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-white">Alamat Workshop</p>
-                    <p className="text-gray-300">Jl. Raya Kemang No. 123</p>
-                    <p className="text-gray-300">Jakarta Selatan 12560</p>
+                    <p className="text-gray-300">Jl. Raya Dukuh Kupang No.6, Dukuh Pakis, Kec. Dukuhpakis</p>
+                    <p className="text-gray-300">Surabaya, Jawa Timur 60225</p>
                   </div>
                 </div>
 
@@ -281,9 +281,7 @@ export const Contact = () => {
                   <ClockIcon size={24} className="mr-4 mt-1 text-green-400 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-white">Jam Operasional</p>
-                    <p className="text-gray-300">Senin - Jumat: 08:00 - 18:00</p>
-                    <p className="text-gray-300">Sabtu: 08:00 - 16:00</p>
-                    <p className="text-gray-300">Minggu: Tutup</p>
+                    <p className="text-gray-300">Setiap Hari 08:00 - 18:00</p>
                   </div>
                 </div>
               </div>
@@ -292,7 +290,7 @@ export const Contact = () => {
             {/* Google Maps */}
             <div className="bg-neutral-800 rounded-xl shadow-lg overflow-hidden border border-neutral-700">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.746890240086!2d106.81634931476894!3d-6.295068995438098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b0b3%3A0x39a0d0fe47404d02!2sKemang%2C%20Mampang%20Prapatan%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1635123456789!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.7643904411475!2d112.71702119999999!3d-7.280094200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb6beb3f3687%3A0xe2abeaeb82d35f2d!2sHD%20Car%20Care%20Surabaya%20Barat!5e1!3m2!1sid!2sid!4v1754981021540!5m2!1sid!2sid"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
